@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "app-build": "vite build --base=./"
   },
   "dependencies": {
     "autoprefixer": "^10.4.13",

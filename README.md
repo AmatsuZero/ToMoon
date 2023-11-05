@@ -68,5 +68,10 @@ sh build.sh
 ````sh
 cd tomoon-web
 yarn
-yarn run build
+yarn run app-build
+````
+3. 把后端服务打包出来
+````sh
+cd backend
+cargo build --release
 ````

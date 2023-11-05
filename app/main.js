@@ -1,8 +1,22 @@
-// main.ts
-
 // Modules to control application life and create native browser window
-import { app, BrowserWindow } from 'electron'
-import path from 'path';
+const { app, BrowserWindow } = require('electron');
+const { spawn } = require('node:child_process');
+const path = require('node:path');
+
+const backendPath = path.join('backend', 'target', 'release', 'tomoon');
+const backend = spawn(backendPath);
+
+backend.stdout.on('data', (data) => {
+    console.log(data.toString());
+});
+
+backend.stderr.on('data', (data) => {
+    console.error(data.toString());
+});
+
+backend.on('exit', (code) => {
+    console.log(`Child exited with code ${code}`);
+});
 
 const createWindow = () => {
     // Create the browser window.
@@ -11,12 +25,12 @@ const createWindow = () => {
         height: 600,
     });
 
-    const tomoonWeb = path.join("..", "tomoon-web", "dist", "index.html");
+    const tomoonWeb = path.join("tomoon-web", "dist", "index.html");
     // and load the index.html of the app.
     mainWindow.loadFile(tomoonWeb);
 
     // Open the DevTools.
-    // mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished
@@ -28,7 +42,7 @@ app.whenReady().then(() => {
     app.on('activate', () => {
         // On macOS it's common to re-create a window in the app when the
         // dock icon is clicked and there are no other windows open.
-        if (BrowserWindow.getAllWindows().length === 0) createWindow()
+        if (BrowserWindow.getAllWindows().length === 0) createWindow();
     })
 })
 

@@ -2,10 +2,12 @@
   "name": "tomoon",
   "version": "0.1.6",
   "description": "SteamOS Network Tools Box.",
+  "main": "app/main.js",
   "scripts": {
     "build": "shx rm -rf dist && rollup -c",
     "watch": "rollup -c -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
