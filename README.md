@@ -56,3 +56,17 @@ bash ~/tomoon_recover.sh
 
 ## Sponsor
 [CloudFlare](https://www.cloudflare.com/)
+
+## 开发环境
+1. 需要先安装 ``wasm-pack``，并把 ``usdpl-rs`` 的包打出来
+````sh
+cargo install wasm-pack
+cd usdpl-rs
+sh build.sh
+````
+2. 需要把前端网页编译出来
+````sh
+cd tomoon-web
+yarn
+yarn run build
+````

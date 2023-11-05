@@ -2,3 +2,6 @@
 	path = yacd
 	url = https://github.com/haishanh/yacd
 	branch = gh-pages
+[submodule "usdpl-rs"]
+	path = usdpl-rs
+	url = git@github.com:NGnius/usdpl-rs.git
